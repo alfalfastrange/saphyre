@@ -60,14 +60,19 @@ namespace Saphyre.Api.SaphyreUsers.Commands
 
             public async Task<Response> Handle(Command command, CancellationToken cancellationToken)
             {
+                var user = await _saphyreUserProvider.GetById(command.UserId, cancellationToken);
+
+                if (user == null)
+                {
+                    return new Response("User not found");
+                }
+
                 var validationResult = await _validator.Validate(command);
 
                 if (!validationResult.IsValid)
                 {
                     return new Response(validationResult.ErrorDetails.Select(x => x.ErrorMessage).ToList());
                 }
-
-                var user = await _saphyreUserProvider.GetById(command.UserId, cancellationToken);
 
                 user.Update(
                     command.Model.FirstName,

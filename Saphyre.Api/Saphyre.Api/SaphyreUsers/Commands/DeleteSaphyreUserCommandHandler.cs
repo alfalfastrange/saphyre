@@ -55,6 +55,7 @@ namespace Saphyre.Api.SaphyreUsers.Commands
                 {
                     return new Response("User not found");
                 }
+
                 var isDeleted = await _saphyreUserProvider.Delete(user, cancellationToken);
 
                 if (isDeleted)
