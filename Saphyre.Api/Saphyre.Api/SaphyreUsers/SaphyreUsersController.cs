@@ -19,7 +19,7 @@ namespace Saphyre.Api.Controllers
 
         [HttpPost]
         [Route("api/saphyreusers")]
-        public async Task<IActionResult> Update([FromBody] CreateOrUpdateSaphyreUserViewModel model, CancellationToken cancellationToken)
+        public async Task<IActionResult> Create([FromBody] CreateOrUpdateSaphyreUserViewModel model, CancellationToken cancellationToken)
         {
             var result = await _mediator.Send(new CreateSaphyreUserCommandHandler.Command(model), cancellationToken);
             return result.IsSuccess ? Ok(result.IsSuccess) : BadRequest(result.Errors);
