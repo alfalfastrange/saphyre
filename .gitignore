@@ -3,3 +3,9 @@
 ################################################################################
 
 /Saphyre.Api/Saphyre.Api/bin/Debug/net6.0
+/Saphyre.Api/Saphyre.Api/obj
+/Saphyre.Api/.vs/Saphyre.Api/FileContentIndex
+/Saphyre.Client/Saphyre.Client/bin/Debug/net6.0
+/Saphyre.Client/Saphyre.Client/obj/Debug/net6.0/build-gz
+/Saphyre.Client/Saphyre.Client/obj/Debug/net6.0
+/Saphyre.Client/Saphyre.Client/obj
