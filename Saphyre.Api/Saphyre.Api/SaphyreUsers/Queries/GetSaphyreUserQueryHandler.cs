@@ -19,6 +19,8 @@ namespace Saphyre.Api.SaphyreUsers.Queries
 
         public class Response
         {
+            public Response() { }
+
             public Response(SaphyreUserViewModel model)
             {
                 Model = model;
@@ -39,6 +41,12 @@ namespace Saphyre.Api.SaphyreUsers.Queries
             public async Task<Response> Handle(Query query, CancellationToken cancellationToken)
             {
                 var saphyreUser = await _saphyreUserProvider.GetById(query.UserId, cancellationToken);
+
+                if (saphyreUser == null)
+                {
+                    return new Response();
+                }
+
                 var model = saphyreUser.ToViewModel();
                 return new Response(model);
             }
